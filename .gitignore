@@ -1,0 +1,50 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment folders
+venv/
+env/
+.venv/
+.env/
+
+
+instance/
+
+# Environment variables file
+.env
+
+# Pytest cache folder
+.pytest_cache/
+
+# MyPy cache
+.mypy_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# VSCode settings 
+.vscode/
+
+# Logs
+*.log
+
+# SQLite database files
+
+# MacOS files
+.DS_Store
+
+# Pycharm files
+.idea/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Python egg
+*.egg

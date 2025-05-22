@@ -1,0 +1,143 @@
+{
+  "info": {
+    "name": "Task Manager API",
+    "_postman_id": "d7bcdcb4-xxxx-xxxx-xxxx-task",
+    "description": "Postman collection for Task Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["auth", "register"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Alice\",\n    \"email\": \"alice@example.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["auth", "login"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"alice@example.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Create Project",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/projects",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["projects"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Demo Project\",\n    \"description\": \"First Test Project\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/projects/1/tasks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["projects", "1", "tasks"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Setup Project\",\n  \"user_id\": 1,\n  \"dependencies\": []\n}"
+        }
+      }
+    },
+    {
+      "name": "Update Task Status",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/tasks/1/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["tasks", "1", "status"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"status\": \"completed\"\n}"
+        }
+      }
+    }
+  ]
+}
